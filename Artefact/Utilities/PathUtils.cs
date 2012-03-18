@@ -37,7 +37,12 @@
 
 using System.Collections.Generic;
 using System.Windows;
+#if NETFX_CORE
+using Windows.UI.Xaml.Media;
+using Windows.Foundation;
+#else
 using System.Windows.Media;
+#endif
 using System.Text.RegularExpressions;
 
 namespace Artefact.Utilities
