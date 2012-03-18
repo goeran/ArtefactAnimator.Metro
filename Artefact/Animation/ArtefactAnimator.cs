@@ -47,10 +47,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+#if NETFX_CORE
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+#else
 using System.Windows.Media;
+#endif
 using System.Collections;
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !NETFX_CORE
 using System.Windows.Media.Media3D;
 #endif
 
@@ -506,7 +511,7 @@ namespace Artefact.Animation
             return group;
         }
 
-        #if !SILVERLIGHT
+        #if !SILVERLIGHT && !NETFX_CORE
         /// <summary>
         /// Get Model3D.Transform with Children in standard order [ TranslateTransform3D, ScaleTransform3D, RotateTransform3D, ... ]
         /// </summary>

@@ -34,7 +34,11 @@
 
 using System;
 using System.Diagnostics;
+#if NETFX_CORE
+using Windows.UI.Xaml.Media;
+#else
 using System.Windows.Media;
+#endif
 
 namespace Artefact.Animation
 {
@@ -73,7 +77,11 @@ namespace Artefact.Animation
 
     public class Stopwatch
     {
+        #if NETFX_CORE
+        internal EventHandler<Object> Tick;
+        #else
         internal EventHandler Tick;
+        #endif
 
         public Stopwatch()
         {
@@ -186,7 +194,13 @@ namespace Artefact.Animation
         }
 
         #region TICK
-        internal void _Tick(object sender, EventArgs e)
+        internal void _Tick(object sender, 
+            #if NETFX_CORE
+            Object e
+            #else
+            EventArgs e
+            #endif
+            )
         {
             try
             {

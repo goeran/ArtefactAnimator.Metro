@@ -35,9 +35,17 @@
 
 using System;
 using System.Windows;
+#if NETFX_CORE
+using Windows.UI.Xaml.Media;
+using Windows.UI;
+using Windows.Foundation;
+using Windows.UI.Xaml.Media.Media3D;
+using Windows.UI.Xaml;
+#else
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
+#endif
 
 namespace Artefact.Animation
 {
@@ -126,6 +134,7 @@ namespace Artefact.Animation
         /// <summary>
         /// Returns new RadialGradientBrush with values eased from startValue to endValue using a time percentage 0 -> 1.
         /// </summary>
+#if !NETFX_CORE
         public static RadialGradientBrush EaseValue(RadialGradientBrush startValue, RadialGradientBrush endValue, double percent)
         {
             return new RadialGradientBrush
@@ -141,6 +150,7 @@ namespace Artefact.Animation
                 GradientStops = EaseValue(startValue.GradientStops, endValue.GradientStops, percent)
             };
         }
+#endif
 
         /// <summary>
         /// Returns new GradientStopCollection with values eased from startValue to endValue using a time percentage 0 -> 1.
@@ -297,6 +307,7 @@ namespace Artefact.Animation
         #endregion
 
         #region EFFECTS
+        #if !NETFX_CORE
         /// <summary>
         /// Returns new BlurEffect with values eased from startValue to endValue using a time percentage 0 -> 1.
         /// </summary>
@@ -323,6 +334,7 @@ namespace Artefact.Animation
                                             ShadowDepth = EaseValue(startValue.ShadowDepth, endValue.ShadowDepth, percent)
             };
         }
+        #endif
         #endregion
 
         #region PATHS

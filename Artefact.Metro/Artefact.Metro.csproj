@@ -106,9 +106,41 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Animation\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Artefact\Animation\AnimationTypes.cs">
+      <Link>Animation\AnimationTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\ArtefactAnimator.cs">
+      <Link>Animation\ArtefactAnimator.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\ArtfactAnimatorEvents.cs">
+      <Link>Animation\ArtfactAnimatorEvents.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\EaseHelper.cs">
+      <Link>Animation\EaseHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\EaseObject.cs">
+      <Link>Animation\EaseObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\GetterSetter.cs">
+      <Link>Animation\GetterSetter.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\GetterSetterData.cs">
+      <Link>Animation\GetterSetterData.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\IEaseObject.cs">
+      <Link>Animation\IEaseObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\IndexEnums.cs">
+      <Link>Animation\IndexEnums.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\Stopwatch.cs">
+      <Link>Animation\Stopwatch.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\Timeout.cs">
+      <Link>Animation\Timeout.cs</Link>
+    </Compile>
     <Compile Include="..\Artefact\Utilities\PathUtils.cs">
       <Link>Utilities\PathUtils.cs</Link>
     </Compile>

@@ -35,12 +35,21 @@
 
 using System;
 using System.Windows;
+#if NETFX_CORE
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
+using Windows.Foundation;
+using Windows.UI.Xaml.Media.Media3D;
+#else
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Media3D;
+#endif
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Artefact.Animation
 {
@@ -258,10 +267,10 @@ namespace Artefact.Animation
                                     }
                                     else if ( ((FrameworkElement) obj).Visibility == Visibility.Visible) 
                                     {
-                                        #if SILVERLIGHT
+                                        #if SILVERLIGHT || NETFX_CORE
                                         (obj as FrameworkElement).Visibility = Visibility.Collapsed;
                                         #endif
-                                        #if !SILVERLIGHT
+                                        #if !SILVERLIGHT && !NETFX_CORE
                                         ((FrameworkElement) obj).Visibility = Visibility.Hidden;
                                         #endif                                                
                                     }
@@ -457,13 +466,17 @@ namespace Artefact.Animation
                     }
                 },
 
-                {   typeof(RadialGradientBrush), 
+                #if !NETFX_CORE
+                {   
+                    typeof(RadialGradientBrush), 
                     new GetterSetter
                     {
                         Getter = GetDependencyPropValue,
                         Setter = (obj, data, percent)=> ((DependencyObject)obj).SetValue((DependencyProperty)data.Prop, EaseHelper.EaseValue((RadialGradientBrush) data.ValueStart, (RadialGradientBrush) data.ValueEnd,percent))
                     }
                 },
+                #endif
+
                 #endregion
 
                 #region BORDERS
@@ -498,6 +511,7 @@ namespace Artefact.Animation
                 #endregion    
 
                 #region EFFECTS
+                #if !NETFX_CORE
                  {  typeof(BlurEffect), 
                     new GetterSetter
                     {
@@ -513,6 +527,7 @@ namespace Artefact.Animation
                         Setter = (obj, data, percent)=> ((DependencyObject)obj).SetValue((DependencyProperty)data.Prop, EaseHelper.EaseValue((DropShadowEffect) data.ValueStart, (DropShadowEffect) data.ValueEnd,percent))
                     }
                 },
+                #endif
                 #endregion
 
                 #region COLOR
