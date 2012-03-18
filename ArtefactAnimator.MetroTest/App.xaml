@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="ArtefactAnimator.MetroTest.App"
+    x:Class="ArtefactAnimatorMetroTest.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ArtefactAnimator.MetroTest">
+    xmlns:local="using:ArtefactAnimatorMetroTest">
 
     <Application.Resources>
         <ResourceDictionary>

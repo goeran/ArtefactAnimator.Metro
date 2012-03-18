@@ -7,7 +7,7 @@
     <ProjectGuid>{928BB664-F335-4C73-BA2F-DF9FCF892BB9}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArtefactAnimator.MetroTest</RootNamespace>
+    <RootNamespace>ArtefactAnimatorMetroTest</RootNamespace>
     <AssemblyName>ArtefactAnimator.MetroTest</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
