@@ -108,6 +108,9 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Artefact\Animation\AnimationTransitions.cs">
+      <Link>Animation\AnimationTransitions.cs</Link>
+    </Compile>
     <Compile Include="..\Artefact\Animation\AnimationTypes.cs">
       <Link>Animation\AnimationTypes.cs</Link>
     </Compile>
@@ -117,11 +120,26 @@
     <Compile Include="..\Artefact\Animation\ArtfactAnimatorEvents.cs">
       <Link>Animation\ArtfactAnimatorEvents.cs</Link>
     </Compile>
+    <Compile Include="..\Artefact\Animation\CustomAnimationTransitions.cs">
+      <Link>Animation\CustomAnimationTransitions.cs</Link>
+    </Compile>
     <Compile Include="..\Artefact\Animation\EaseHelper.cs">
       <Link>Animation\EaseHelper.cs</Link>
     </Compile>
     <Compile Include="..\Artefact\Animation\EaseObject.cs">
       <Link>Animation\EaseObject.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\EaseObjectGroup.cs">
+      <Link>Animation\EaseObjectGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\Extensions\ArtefactAnimatorExtensions.cs">
+      <Link>Animation\Extensions\ArtefactAnimatorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\Extensions\EaseObjectExtensions.cs">
+      <Link>Animation\Extensions\EaseObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\Extensions\Extras.cs">
+      <Link>Animation\Extensions\Extras.cs</Link>
     </Compile>
     <Compile Include="..\Artefact\Animation\GetterSetter.cs">
       <Link>Animation\GetterSetter.cs</Link>
@@ -137,6 +155,9 @@
     </Compile>
     <Compile Include="..\Artefact\Animation\Stopwatch.cs">
       <Link>Animation\Stopwatch.cs</Link>
+    </Compile>
+    <Compile Include="..\Artefact\Animation\TickObject.cs">
+      <Link>Animation\TickObject.cs</Link>
     </Compile>
     <Compile Include="..\Artefact\Animation\Timeout.cs">
       <Link>Animation\Timeout.cs</Link>

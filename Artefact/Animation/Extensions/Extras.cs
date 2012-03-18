@@ -34,9 +34,12 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
+#if NETFX_CORE
+#else
 using System.Windows.Media.Effects;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+#endif
 
 namespace Artefact.Animation.Extensions
 {
@@ -74,12 +77,15 @@ namespace Artefact.Animation.Extensions
 
         public static Dictionary<string, object> Shortcuts = new Dictionary<string, object>
         {
+            #if !NETFX_CORE
              { BlurRadius, System.Windows.Media.Effects.DropShadowEffect.BlurRadiusProperty }
             ,{ ShadowDepth, System.Windows.Media.Effects.DropShadowEffect.ShadowDepthProperty }
             ,{ Opacity, System.Windows.Media.Effects.DropShadowEffect.OpacityProperty }
             ,{ Direction, System.Windows.Media.Effects.DropShadowEffect.DirectionProperty }
+            #endif
         };
 
+        #if !NETFX_CORE
         public static void EaseValue(DropShadowEffect current, DropShadowEffect startValue, DropShadowEffect endValue, double percent)
         {
             if ( current.BlurRadius != endValue.BlurRadius) current.BlurRadius  = EaseHelper.EaseValue(startValue.BlurRadius, endValue.BlurRadius, percent);
@@ -129,6 +135,7 @@ namespace Artefact.Animation.Extensions
                 ShadowDepth = effect.ShadowDepth
             };
         }
+        #endif
     }
 
     #if SILVERLIGHT

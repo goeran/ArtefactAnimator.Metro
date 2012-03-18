@@ -34,9 +34,15 @@
 
 using System;
 using System.Linq;
+#if NETFX_CORE
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Controls;
+#else
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
 using System.Windows.Controls;
+#endif
 using System.Windows;
 using System.Diagnostics;
 
@@ -71,10 +77,10 @@ namespace Artefact.Animation
         {
             ArtefactAnimator.StopEase(obj, new string[] { AnimationTypes.Alpha, AnimationTypes.AutoAlpha, AnimationTypes.AutoAlphaCollapsed });
             obj.Opacity = alpha;
-            #if !SILVERLIGHT
+            #if !SILVERLIGHT && !NETFX_CORE
                 obj.Visibility = alpha > 0 ? Visibility.Visible : Visibility.Hidden;
             #endif
-            #if SILVERLIGHT
+            #if SILVERLIGHT || NETFX_CORE
                 obj.Visibility = alpha > 0 ? Visibility.Visible : Visibility.Collapsed;
             #endif
         }
@@ -254,7 +260,7 @@ namespace Artefact.Animation
             return element.GetNormalizedTransform<T>();
         }
 
-        #if !SILVERLIGHT
+        #if !SILVERLIGHT && !NETFX_CORE
         /// <summary>
         /// Get Model3D.Transform with Children in standard order [ TranslateTransform3D, ScaleTransform3D, RotateTransform3D, ... ]
         /// </summary>
