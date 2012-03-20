@@ -521,8 +521,7 @@ namespace Artefact.Animation
         #endregion
 
         #region TRANSFORMS
-        #if SILVERLIGHT
-        #if IsDotNet4OrGreater
+        #if SILVERLIGHT || IsDotNet4OrGreater || NETFX_CORE
         /// <summary>
         /// Returns new CompositeTransform by easing startValue to endValue using a time percentage 0 -> 1.
         /// </summary>
@@ -569,7 +568,6 @@ namespace Artefact.Animation
             };
         }
 
-        #endif
         #endif
         #endregion
 

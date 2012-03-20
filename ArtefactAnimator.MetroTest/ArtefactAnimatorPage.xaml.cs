@@ -35,6 +35,7 @@ namespace ArtefactAnimatorMetroTest
             btnFadeOut.Click += btnFadeOut_Click;
             btnBlink.Click += btnBlink_Click;
             rectangle.PointerPressed += rectangle_PointerPressed;
+            rectangle.PointerReleased += rectangle_PointerReleased;
 
             layoutRoot.PointerMoved += (o, args) =>
             {
@@ -47,8 +48,28 @@ namespace ArtefactAnimatorMetroTest
             };
         }
 
+        void rectangle_PointerReleased(object sender, PointerEventArgs e)
+        {
+            ArtefactAnimator.AddEase(
+                rectangle,
+                UIElement.RenderTransformProperty,
+                new CompositeTransform { ScaleX = 1, ScaleY = 1 },
+                0.2,
+                AnimationTransitions.CubicEaseOut,
+                0
+           );
+        }
+
         void rectangle_PointerPressed(object sender, PointerEventArgs e)
         {
+            ArtefactAnimator.AddEase(
+                rectangle,
+                UIElement.RenderTransformProperty,
+                new CompositeTransform { ScaleX = 1.5, ScaleY = 1.5 },
+                0.2,
+                AnimationTransitions.CubicEaseOut,
+                0
+           );
         }
 
         void btnBlink_Click(object sender, RoutedEventArgs e)

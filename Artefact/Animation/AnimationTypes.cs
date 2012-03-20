@@ -617,8 +617,7 @@ namespace Artefact.Animation
                 #endregion
 
                 #region TRANSFORMS
-                #if SILVERLIGHT
-                #if IsDotNet4OrGreater
+                #if SILVERLIGHT || IsDotNet4OrGreater || NETFX_CORE
                 {  typeof(CompositeTransform), 
                     new GetterSetter
                     {
@@ -627,7 +626,6 @@ namespace Artefact.Animation
                     }
                 },
                 #endif
-                #endif 
                 #endregion
 
                 #region 3D
