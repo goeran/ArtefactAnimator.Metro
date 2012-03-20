@@ -83,7 +83,7 @@ namespace ArtefactAnimatorMetroTest
                 double delay = (n * .01) + 0;
 
                 //  DEPENDENCY PROPERTY
-                //  ArtefactAnimator.AddEase(ball, new[] { Canvas.LeftProperty, Canvas.TopProperty }, new[] { x, y }, 2, AnimationTransitions.ElasticEaseOut, delay);
+                //ArtefactAnimator.AddEase(ball, new[] { Canvas.LeftProperty, Canvas.TopProperty }, new[] { x, y }, 2, AnimationTransitions.ElasticEaseOut, delay);
 
                 //  STRINGS
                 ball.DimensionsTo(size, size, 3, AnimationTransitions.ElasticEaseOut, 0);
