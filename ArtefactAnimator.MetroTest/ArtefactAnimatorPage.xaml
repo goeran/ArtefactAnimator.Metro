@@ -8,19 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"
-                    Height="44"
+                    Grid.Row="0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left">
             <Button x:Name="btnFadeIn" Content="Fade In"></Button>
             <Button x:Name="btnFadeOut" Content="Fade Out"></Button>
+            <Button x:Name="btnBlink" Content="Blink"></Button>
         </StackPanel>
         
         <Canvas x:Name="layoutRoot" 
+                Grid.Row="1"
                 Background="White"
                 Width="Auto"
-                Height="Auto"
-                Margin="0,44,0,0">
+                Height="Auto">
             <Canvas x:Name="rectangle"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"

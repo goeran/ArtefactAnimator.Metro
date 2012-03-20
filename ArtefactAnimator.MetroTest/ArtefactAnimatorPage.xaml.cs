@@ -33,6 +33,8 @@ namespace ArtefactAnimatorMetroTest
         {
             btnFadeIn.Click += btnFadeIn_Click;
             btnFadeOut.Click += btnFadeOut_Click;
+            btnBlink.Click += btnBlink_Click;
+            rectangle.PointerPressed += rectangle_PointerPressed;
 
             layoutRoot.PointerMoved += (o, args) =>
             {
@@ -43,6 +45,32 @@ namespace ArtefactAnimatorMetroTest
 
                 rectangle.SlideTo(x, y, 0.3, AnimationTransitions.CubicEaseOut, 0);
             };
+        }
+
+        void rectangle_PointerPressed(object sender, PointerEventArgs e)
+        {
+        }
+
+        void btnBlink_Click(object sender, RoutedEventArgs e)
+        {
+            Blink(rectangle, 3, () => { });
+        }
+
+        public static void Blink(UIElement uiElement, int numBlinks, Action complete)
+        {
+            if (numBlinks == 0)
+            {
+                if (complete != null) complete();
+                return;
+            }
+
+            var opacity = uiElement.Opacity;
+
+            uiElement.AlphaTo(0.4, 0.5, null, 0)
+                .Complete += (easeObject, percent) =>
+                {
+                    uiElement.AlphaTo(opacity, 0.5, null, 0).Complete += (o, d) => Blink(uiElement, numBlinks - 1, complete);
+                };
         }
 
         void btnFadeOut_Click(object sender, RoutedEventArgs e)
