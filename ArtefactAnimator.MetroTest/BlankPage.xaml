@@ -9,6 +9,6 @@
 
     <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
         <Canvas x:Name="LayoutRoot" Width="Auto" Height="Auto"
-                Background="Black"/>
+                Background="White"/>
     </Grid>
 </Page>
